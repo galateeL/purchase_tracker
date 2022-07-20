@@ -1,0 +1,17 @@
+P-1
+En tant qu'utilisateur, je suis accueillie par une page welcome
+
+P-2
+En tant qu’utilisateur, je navigue sur l’application grâce à une barre de navigation
+
+P-3
+En tant qu'utilisateur je dois voir un aperçu de l'ensemble des fiches produits et pouvoir faire une recherche par nom de produit
+
+P-4
+En tant qu'utilisateur je dois accéder à un détail de la fiche produit
+
+P-5 
+En tant qu'utilisateur, depuis la fiche produit je dois pouvoir ajouter une date et un prix et avoir la possibilité de supprimer un produit
+
+P-6
+En tant qu'utilisateur je dois accéder à un formulaire pour ajouter un produit et une image d'illustration associée
