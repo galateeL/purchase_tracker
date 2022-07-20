@@ -3,7 +3,7 @@ const models = require("../models");
 class ItemController {
   static browse = (req, res) => {
     models.item
-      .findAll()
+      .findAllItems()
       .then(([rows]) => {
         res.send(rows);
       })
@@ -15,7 +15,7 @@ class ItemController {
 
   static read = (req, res) => {
     models.item
-      .find(req.params.id)
+      .findItem(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
