@@ -3,10 +3,10 @@ const AbstractManager = require("./AbstractManager");
 class ItemManager extends AbstractManager {
   static table = "item";
 
-  insert(item) {
+  insert(item, image) {
     return this.connection.query(
       `insert into ${ItemManager.table} (name, description, image) values (?, ?, ?)`,
-      [item.name, item.description, item.image]
+      [item.name, item.description, image]
     );
   }
 

@@ -29,7 +29,6 @@ export default function ItemList() {
       </div>
 
       <div className="wj-item-list">
-        {console.error(items)}
         {items
           .filter((item) =>
             searchValue === "" ? true : item.name.includes(searchValue)

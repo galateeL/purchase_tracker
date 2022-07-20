@@ -53,13 +53,16 @@ class ItemController {
 
   static add = (req, res) => {
     const item = req.body;
+    console.error(req);
+    const image = req.files[0].path;
 
     // TODO validations (length, format...)
+    //
 
     models.item
-      .insert(item)
+      .insert(item, image.replace(/\\/g, "/"))
       .then(([result]) => {
-        res.status(201).send({ ...item, id: result.insertId });
+        res.status(201).send({ ...item, image, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
