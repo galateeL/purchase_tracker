@@ -5,15 +5,31 @@ class ItemManager extends AbstractManager {
 
   insert(item) {
     return this.connection.query(
-      `insert into ${ItemManager.table} (title) values (?)`,
-      [item.title]
+      `insert into ${ItemManager.table} (name, description, image) values (?, ?, ?)`,
+      [item.name, item.description, item.image]
     );
   }
 
   update(item) {
     return this.connection.query(
-      `update ${ItemManager.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      `update ${ItemManager.table} set name = ? where id = ?`,
+      [item.name, item.id]
+    );
+  }
+
+  findAllItems() {
+    return this.connection.query(
+      `SELECT item.id, item.name, item.description, item.image FROM ${ItemManager.table}`
+    );
+  }
+
+  findItem(id) {
+    return this.connection.query(
+      `SELECT item.id, item.name, item.description, item.image, purchase.id, purchase.date, price 
+      FROM ${ItemManager.table}
+      INNER JOIN purchase ON item.id = purchase.item_id
+      WHERE item.id = ?`,
+      [id]
     );
   }
 }
