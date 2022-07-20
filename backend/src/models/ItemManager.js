@@ -3,6 +3,8 @@ const AbstractManager = require("./AbstractManager");
 class ItemManager extends AbstractManager {
   static table = "item";
 
+  static table2 = "purchase";
+
   insert(item, image) {
     return this.connection.query(
       `insert into ${ItemManager.table} (name, description, image) values (?, ?, ?)`,
@@ -20,16 +22,6 @@ class ItemManager extends AbstractManager {
   findAllItems() {
     return this.connection.query(
       `SELECT item.id, item.name, item.description, item.image FROM ${ItemManager.table}`
-    );
-  }
-
-  findItem(id) {
-    return this.connection.query(
-      `SELECT item.id, item.name, item.description, item.image, purchase.id, purchase.date, price 
-      FROM ${ItemManager.table}
-      INNER JOIN purchase ON item.id = purchase.item_id
-      WHERE item.id = ?`,
-      [id]
     );
   }
 }

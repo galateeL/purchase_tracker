@@ -15,12 +15,28 @@ class ItemController {
 
   static read = (req, res) => {
     models.item
-      .findItem(req.params.id)
+      .find(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
         } else {
           res.send(rows[0]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static readPurchasesByItem = (req, res) => {
+    models.purchase
+      .findPurchasesByItem(req.params.id)
+      .then(([rows]) => {
+        if (rows[0] == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows);
         }
       })
       .catch((err) => {
@@ -44,6 +60,22 @@ class ItemController {
         } else {
           res.sendStatus(204);
         }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static addPurchase = (req, res) => {
+    const purchase = req.body;
+    const itemId = parseInt(req.params.id, 10);
+    console.error(purchase);
+    // TODO validations (length, format...)
+    models.purchase
+      .insert(purchase, itemId)
+      .then(([result]) => {
+        res.status(201).send({ ...purchase, itemId, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
