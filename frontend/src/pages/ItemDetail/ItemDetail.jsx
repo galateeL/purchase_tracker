@@ -2,6 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./ItemDetail.css";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function ItemDetail() {
   const [details, setDetails] = useState([]);
