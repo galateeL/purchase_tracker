@@ -2,14 +2,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./ItemDetail.css";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { BiPlus } from "react-icons/bi";
-
-ChartJS.register(ArcElement, Tooltip, Legend);
+import Chart from "../../components/Chart/Charts";
+import AddPurchase from "../../components/Purchase/AddPurchase";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ItemDetail() {
   const [details, setDetails] = useState([]);
   const [purchases, setPurchases] = useState([]);
+  const [showAdd, setShowAdd] = useState(false);
+
   const { id } = useParams();
   useEffect(() => {
     axios
@@ -33,8 +35,21 @@ export default function ItemDetail() {
       });
   }, []);
 
+  function handlePurchase() {
+    setShowAdd(true);
+  }
+
   return (
     <div id="">
+      {showAdd ? (
+        <AddPurchase
+          showModal={showAdd}
+          setShow={setShowAdd}
+          methodAxios="post"
+          urlAxios={`${import.meta.env.VITE_BACKEND_URL}/items/:id/purchases`}
+        />
+      ) : null}
+
       <div className="">
         <img
           src={`${import.meta.env.VITE_BACKEND_URL}/${details.image}`}
@@ -63,13 +78,20 @@ export default function ItemDetail() {
           </div>
         </div>
         <div className="center" />
-        Graph
+        <Chart data={purchases} />
       </div>
       <div>
         Ajouter un achat pour ce produit
         <Link to="/items/add">
           <BiPlus className="plus" />
         </Link>
+        <button
+          className="newButtonMember"
+          type="button"
+          onClick={() => handlePurchase()}
+        >
+          Ajouter un achat
+        </button>
       </div>
     </div>
   );
