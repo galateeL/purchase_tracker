@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./ItemDetail.css";
-import { BiPlus } from "react-icons/bi";
 import Chart from "../../components/Chart/Charts";
 import AddPurchase from "../../components/Purchase/AddPurchase";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -46,47 +45,44 @@ export default function ItemDetail() {
           showModal={showAdd}
           setShow={setShowAdd}
           methodAxios="post"
-          urlAxios={`${import.meta.env.VITE_BACKEND_URL}/items/:id/purchases`}
+          urlAxios={`${import.meta.env.VITE_BACKEND_URL}/items/${id}/purchases`}
         />
       ) : null}
 
       <div className="">
+        <h1 className="product-name">{details.name}</h1>
+        <div className="produt-description">{details.description}</div>
         <img
           src={`${import.meta.env.VITE_BACKEND_URL}/${details.image}`}
+          height="100"
+          width="300"
           alt=""
-          width="100"
+          className="item-img"
         />
       </div>
-      <div className="">
-        <h1>{details.name}</h1>
-        <div className="data">
-          <div className="">Description : {details.description}</div>
-          <div>
-            <table>
-              <tr>
-                <th>Date</th>
-                <th>Prix</th>
-              </tr>
+      <div className="data">
+        <div className="product-table">
+          <table className="price-table">
+            <tr className="tr-table">
+              <th>Date</th>
+              <th>Prix</th>
+            </tr>
 
-              {purchases.map((purchase) => (
-                <tr>
-                  <td>{purchase.date}</td>
-                  <td>{purchase.price}</td>
-                </tr>
-              ))}
-            </table>
-          </div>
+            {purchases.map((purchase) => (
+              <tr>
+                <td>{new Date(purchase.date).toLocaleDateString()}</td>
+                <td>{purchase.price}</td>
+              </tr>
+            ))}
+          </table>
         </div>
-        <div className="center" />
-        <Chart data={purchases} />
+      </div>
+      <div className="chart-container">
+        <Chart data={purchases} className="chart" />
       </div>
       <div>
-        Ajouter un achat pour ce produit
-        <Link to="/items/add">
-          <BiPlus className="plus" />
-        </Link>
         <button
-          className="newButtonMember"
+          className="new-purchase-button"
           type="button"
           onClick={() => handlePurchase()}
         >

@@ -9,7 +9,7 @@ export default function Item({ item }) {
       <div className="product-img">
         <img
           src={`${import.meta.env.VITE_BACKEND_URL}/${image}`}
-          height="420"
+          height="300"
           width="327"
           alt=""
         />
@@ -19,11 +19,9 @@ export default function Item({ item }) {
           <h1>{name}</h1>
           <h2>{description}</h2>
           <p>
-            Harvest Vases are a reinterpretation
-            <br /> of peeled fruits and vegetables as
-            <br /> functional objects. The surfaces
-            <br /> appear to be sliced and pulled aside,
-            <br /> allowing room for growth.{" "}
+            Lorem ipsum dolor sit amet. Et natus voluptatum
+            <br />
+            sed quasi velit cum dolore vitae vel sint animi
           </p>
         </div>
 

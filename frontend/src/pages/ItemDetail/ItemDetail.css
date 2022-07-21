@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Pacifico&family=Playfair+Display&family=Roboto+Condensed&display=swap");
+.item-img {
+  object-fit: cover;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100vw;
+}
+
+.product-name {
+  /* font-family: 'Playfair Display', serif; */
+  /* font-family: "Bentham", serif; */
+  /* font-family: "Raleway", sans-serif; */
+  /* font-family: 'Roboto Condensed', sans-serif; */
+  font-family: "Pacifico", cursive;
+  color: #201b72;
+}
+
+.produt-description {
+  margin: 0 0 0px 0px;
+  font-size: 13px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d2d2d2;
+  letter-spacing: 0.2em;
+}
+
+.product-table {
+  display: flex;
+  justify-content: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+.price-table,
+.tr-table {
+  border: solid 1em #d2d2d2;
+  padding: 0.5em;
+  border-width: 0;
+}
+td {
+  padding-right: 1em;
+  padding-left: 1em;
+  color: #a7a7a7;
+}
+
+th {
+  color: #947cff;
+}
+
+.chart-container {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding-right: 4em;
+}
+
+.new-purchase-button {
+  display: inline-block;
+  height: 50px;
+  width: 176px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: #9cebd5;
+  cursor: pointer;
+  outline: none;
+}
+
+.product-price-btn button:hover {
+  background-color: #79b0a1;
+}

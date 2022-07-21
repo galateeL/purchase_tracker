@@ -11,12 +11,14 @@ CREATE TABLE `item` (
   `description` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL
 )ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 INSERT INTO
   `item` (name, description, image)
 VALUES
-("Carotte", "legume", "https://images.unsplash.com/photo-1635774855751-09365b3071ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=290&q=80"),
-("Poireau", "legume", "https://images.unsplash.com/photo-1613782805532-cdd2cf1f5b7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"),
-("électricité", "une facture mensuelle d'electricité", "https://images.unsplash.com/photo-1413882353314-73389f63b6fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+("Carotte", "Légume", "uploads/items/image-1658432575076-938684754.jpeg"),
+("Fraise", "Fruit", "uploads/items/image-1658432595424-221884288.jpeg"),
+("Poireau", "Légume", "uploads/items/image-1658432645006-704182821.jpeg"),
+("Electricité", "Energie", "uploads/items/image-1658432618490-166537509.jpeg");
 
 DROP TABLE IF EXISTS `purchase`;
 CREATE TABLE `purchase` (
@@ -25,13 +27,27 @@ CREATE TABLE `purchase` (
   `price` DECIMAL(10,2) NOT NULL,
   `item_id` int NOT NULL
 )ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 INSERT INTO
   `purchase` (date, price, item_id)
 VALUES
-('2022-07-18', 2.40, 1),
-('2022-07-10', 2.45, 1),
-('2022-03-04', 55, 3),
-('2022-04-12', 2.40, 2);
+('2022-01-22',1.56,1),
+('2022-02-12',1.6,1),
+('2022-03-02',1.6,1),
+('2022-05-20',1.92,1),
+('2022-06-15',2.20,1),
+('2022-06-12',10.01,2),
+('2022-06-30',12.03,2),
+('2022-07-20',13.50,2),
+('2022-01-15',55.00,3),
+('2022-02-15',55.00,3),
+('2022-03-15',55.00,3),
+('2022-04-15',55.00,3),
+('2022-05-15',58.00,3),
+('2022-01-23',5.31,4),
+('2022-02-01',5.89,4),
+('2022-04-12',4.90,4),
+('2022-05-04',5.10,4);
  
 
 ALTER TABLE `purchase` ADD CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`)

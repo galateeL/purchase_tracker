@@ -1,0 +1,21 @@
+.input-search {
+  border: none;
+  outline: none;
+}
+
+.input-search-container {
+  border: solid 0.01em #201b72;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding-left: 1em;
+}
+
+.input-search {
+  color: #201b72;
+  padding-left: 1em;
+}
+
+.icon-search {
+  color: #201b72;
+}
