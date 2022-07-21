@@ -6,7 +6,7 @@ class PurchaseManager extends AbstractManager {
   insert(purchase, itemId) {
     return this.connection.query(
       `insert into ${PurchaseManager.table} (date, price, item_id) values ( ?, ?, ?)`,
-      [purchase.date, purchase.price, itemId]
+      [purchase.purchaseDate, purchase.purchasePrice, itemId]
     );
   }
 

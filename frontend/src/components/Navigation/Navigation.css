@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+.first-container-nav {
+  background-color: #eb5569;
+  background-color: #201b72;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 1em;
+}
+
+.icon-nav {
+  color: white;
+  /* margin-top : 1em;
+    margin-bottom: 1em; */
+  font-size: 2em;
+}
+
+.purchase-tracker-logo-Mobile {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  width: 20%;
+  height: auto;
+  margin: 0, auto;
+  position: relative;
+}
+
+.icons-container {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.titles-container {
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (min-width: 714px) {
+  .icons-container {
+    display: none;
+    visibility: hidden;
+  }
+
+  .purchase-tracker-logo-Mobile {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 8%;
+    height: auto;
+    margin: 0, auto;
+    position: relative;
+  }
+
+  .titles-container {
+    display: block;
+    visibility: visible;
+    display: flex;
+    /* font-family: 'Playfair Display', serif; */
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 0.6em;
+    justify-content: space-evenly;
+    width: 80%;
+  }
+
+  .title-nav {
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+    margin: 0;
+  }
+}

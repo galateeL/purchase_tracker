@@ -2,6 +2,8 @@ import * as React from "react";
 import { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
+import "./AddItemForm.css";
+import Flower from "../../assets/flower.gif";
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -38,10 +40,15 @@ export default function Form() {
   };
 
   return (
-    <div>
-      <h1>Ajouter un nouvel article</h1>
-      <form onSubmit={handleSubmit} encType="multipart/form-data" method="POST">
-        <label htmlFor="name">
+    <div className="AddFormContainer">
+      <h1 className="addFormTitle">Ajouter un nouvel article</h1>
+      <form
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+        method="POST"
+        className="AddForm"
+      >
+        <label htmlFor="name" className="labelForm">
           Nom de l'article
           <input
             id="name"
@@ -51,7 +58,7 @@ export default function Form() {
           />
           <br />
         </label>
-        <label htmlFor="description">
+        <label htmlFor="description" className="labelForm">
           Description
           <input
             id="description"
@@ -60,8 +67,7 @@ export default function Form() {
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-        <label className="label-file" htmlFor="file">
-          Image
+        <label htmlFor="file" className="labelForm">
           <input
             id="file"
             type="file"
@@ -70,7 +76,10 @@ export default function Form() {
             onChange={(e) => handleChange(e)}
           />
         </label>
-        <button type="submit">Ajouter l'article</button>
+        <button type="submit" className="addButton">
+          Ajouter l'article
+        </button>
+        <img src={Flower} alt="" width="200" className="plant1" />
       </form>
     </div>
   );

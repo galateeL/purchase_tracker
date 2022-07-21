@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import swal from "sweetalert";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function AddMember({
+export default function AddPurchase({
   showModal,
   setShow,
   methodAxios,
@@ -73,9 +74,9 @@ export default function AddMember({
     </div>
   );
 }
-AddMember.propTypes = {
-  showModal: PropTypes.bool.isRequired,
-  setShow: PropTypes.func.isRequired,
-  methodAxios: PropTypes.string.isRequired,
-  urlAxios: PropTypes.string.isRequired,
-};
+// AddPurchase.propTypes = {
+//   showModal: PropTypes.bool.isRequired,
+//   setShow: PropTypes.func.isRequired,
+//   methodAxios: PropTypes.string.isRequired,
+//   urlAxios: PropTypes.string.isRequired,
+// };

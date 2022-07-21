@@ -16,6 +16,7 @@ export default function ItemList() {
       .then((res) => res.data)
       .then((data) => {
         setItems(data);
+        console.error(data);
       })
       .catch((err) => {
         console.warn(err);
@@ -23,10 +24,12 @@ export default function ItemList() {
   }, []);
 
   return (
-    <div id="">
-      <h1>Mes produits</h1>
-      <div className="filter">
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+    <div className="item-list-container">
+      <div className="title-search-container">
+        <h1 className="mes-produits">Mes produits</h1>
+        <div className="filter">
+          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        </div>
       </div>
 
       <div className="wj-item-list">
@@ -37,7 +40,7 @@ export default function ItemList() {
               : item.name.toLowerCase().includes(searchValue.toLowerCase())
           )
           .map((item) => (
-            <Link to={`items/${item.id}`}>
+            <Link to={`/${item.id}`}>
               <Item item={item} />
             </Link>
           ))}
