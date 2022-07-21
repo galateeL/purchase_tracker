@@ -7,9 +7,13 @@ export default function Item({ item }) {
   return (
     <div className="wrapper">
       <div className="product-img">
-        <img src={image} height="420" width="327" alt="" />
+        <img
+          src={`${import.meta.env.VITE_BACKEND_URL}/${image}`}
+          height="420"
+          width="327"
+          alt=""
+        />
       </div>
-
       <div className="product-info">
         <div className="product-text">
           <h1>{name}</h1>
@@ -24,9 +28,6 @@ export default function Item({ item }) {
         </div>
 
         <div className="product-price-btn">
-          {/* <p>
-            <span>prix</span>€
-          </p> */}
           <button type="button">Read more</button>
         </div>
       </div>

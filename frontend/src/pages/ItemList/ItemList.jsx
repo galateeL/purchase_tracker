@@ -7,6 +7,7 @@ import Search from "../../components/Search/Search";
 
 export default function ItemList() {
   const [items, setItems] = useState([]);
+
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
@@ -29,10 +30,11 @@ export default function ItemList() {
       </div>
 
       <div className="wj-item-list">
-        {console.error(items)}
         {items
           .filter((item) =>
-            searchValue === "" ? true : item.name.includes(searchValue)
+            searchValue === ""
+              ? true
+              : item.name.toLowerCase().includes(searchValue.toLowerCase())
           )
           .map((item) => (
             <Link to={`items/${item.id}`}>
