@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./Item.css";
+import { motion } from "framer-motion";
 
 export default function Item({ item }) {
   const { name, description, image } = item;
@@ -26,7 +27,13 @@ export default function Item({ item }) {
         </div>
 
         <div className="product-price-btn">
-          <button type="button">Read more</button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            type="button"
+          >
+            Read more
+          </motion.button>
         </div>
       </div>
     </div>

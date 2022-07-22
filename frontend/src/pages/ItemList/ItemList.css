@@ -1,11 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&family=Roboto+Condensed&display=swap");
 
 .mes-produits {
-  /* font-family: 'Roboto Condensed', sans-serif;
-    color: #947cff; */
   font-family: "Pacifico", cursive;
   color: #201b72;
-  /* margin-top : 1em */
   position: relative;
 }
 
@@ -16,6 +13,9 @@
   margin-top: 1em;
   margin-bottom: 1em;
 }
+.item-list-container {
+  margin-top: 1em;
+}
 
 @media screen and (min-width: 969px) {
   .title-search-container {
@@ -23,8 +23,10 @@
     width: 45vw;
     justify-content: space-between;
     align-items: center;
-    /* position: relative; */
     margin: 0 auto;
+  }
+
+  .item-list-container {
     margin-top: 2em;
   }
 

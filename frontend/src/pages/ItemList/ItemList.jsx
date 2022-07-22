@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Item from "../../components/Item/Item";
 import Search from "../../components/Search/Search";
+import Navigation from "../../components/Navigation/Navigation";
 
 export default function ItemList() {
   const [items, setItems] = useState([]);
@@ -16,7 +17,6 @@ export default function ItemList() {
       .then((res) => res.data)
       .then((data) => {
         setItems(data);
-        console.error(data);
       })
       .catch((err) => {
         console.warn(err);
@@ -24,26 +24,29 @@ export default function ItemList() {
   }, []);
 
   return (
-    <div className="item-list-container">
-      <div className="title-search-container">
-        <h1 className="mes-produits">Mes produits</h1>
-        <div className="filter">
-          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+    <div>
+      <Navigation />
+      <div className="item-list-container">
+        <div className="title-search-container">
+          <h1 className="mes-produits">Mes produits</h1>
+          <div className="filter">
+            <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+          </div>
         </div>
-      </div>
 
-      <div className="wj-item-list">
-        {items
-          .filter((item) =>
-            searchValue === ""
-              ? true
-              : item.name.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .map((item) => (
-            <Link to={`/${item.id}`}>
-              <Item item={item} />
-            </Link>
-          ))}
+        <div className="wj-item-list">
+          {items
+            .filter((item) =>
+              searchValue === ""
+                ? true
+                : item.name.toLowerCase().includes(searchValue.toLowerCase())
+            )
+            .map((item) => (
+              <Link to={`/${item.id}`}>
+                <Item item={item} />
+              </Link>
+            ))}
+        </div>
       </div>
     </div>
   );
