@@ -3,7 +3,7 @@ const models = require("../models");
 class ItemController {
   static browse = (req, res) => {
     models.item
-      .findAll()
+      .findAllItems()
       .then(([rows]) => {
         res.send(rows);
       })
@@ -21,6 +21,22 @@ class ItemController {
           res.sendStatus(404);
         } else {
           res.send(rows[0]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static readPurchasesByItem = (req, res) => {
+    models.purchase
+      .findPurchasesByItem(req.params.id)
+      .then(([rows]) => {
+        if (rows[0] == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows);
         }
       })
       .catch((err) => {
@@ -51,15 +67,33 @@ class ItemController {
       });
   };
 
+  static addPurchase = (req, res) => {
+    const purchase = req.body;
+    const itemId = parseInt(req.params.id, 10);
+    // TODO validations (length, format...)
+    models.purchase
+      .insert(purchase, itemId)
+      .then(([result]) => {
+        res.status(201).send({ ...purchase, itemId, id: result.insertId });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static add = (req, res) => {
     const item = req.body;
+    console.error(req);
+    const image = req.files[0].path;
 
     // TODO validations (length, format...)
+    //
 
     models.item
-      .insert(item)
+      .insert(item, image.replace(/\\/g, "/"))
       .then(([result]) => {
-        res.status(201).send({ ...item, id: result.insertId });
+        res.status(201).send({ ...item, image, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);

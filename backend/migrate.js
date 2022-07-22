@@ -11,6 +11,7 @@ const migrate = async () => {
     user: DB_USER,
     password: DB_PASSWORD,
     multipleStatements: true,
+    timezone: "local",
   });
 
   await connection.query(`drop database if exists ${DB_NAME}`);

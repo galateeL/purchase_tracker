@@ -1,0 +1,25 @@
+.addPurchase-modal {
+  margin-top: 10em;
+}
+
+.label-add-purchase {
+  margin-bottom: 2em;
+  margin-right: 3em;
+}
+
+.ajouter-achat {
+  background-color: #9cebd5;
+  border: none;
+}
+
+.ajouter-achat:hover {
+  background-color: #79b0a1;
+}
+
+.input-purchase-modal {
+  margin-left: 1em;
+}
+
+.close-button {
+  color: #79b0a1;
+}

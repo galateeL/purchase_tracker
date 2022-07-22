@@ -25,6 +25,8 @@ app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
 // API routes
 app.use(router);
 
+app.use("/uploads/items", express.static("uploads/items"));
+
 // Redirect all requests to the REACT app
 const reactIndexFile = path.join(
   __dirname,
