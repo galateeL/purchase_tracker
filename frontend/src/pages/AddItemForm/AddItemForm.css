@@ -53,14 +53,27 @@
   background-color: #79b0a1;
 }
 
-/* .plant1 {
-    display: block;
-    margin-left: 30em;
-  } */
-
 @media screen and (min-width: 714px) {
+  .addFormTitle {
+    font-family: "Pacifico", cursive;
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
   #name,
   #description {
     width: 26em;
+  }
+
+  .AddFormContainer {
+    background-color: rgba(32, 27, 114);
+    height: 100vh;
+    margin-bottom: 0;
+  }
+
+  .plant1 {
+    display: none;
+    visibility: hidden;
   }
 }

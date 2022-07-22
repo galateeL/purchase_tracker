@@ -70,7 +70,6 @@ class ItemController {
   static addPurchase = (req, res) => {
     const purchase = req.body;
     const itemId = parseInt(req.params.id, 10);
-    console.error(purchase);
     // TODO validations (length, format...)
     models.purchase
       .insert(purchase, itemId)

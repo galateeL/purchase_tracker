@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import swal from "sweetalert";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./AddPurchase.css";
 
 export default function AddPurchase({
   showModal,
@@ -40,32 +40,38 @@ export default function AddPurchase({
   };
   return (
     <div>
-      <Modal className="" show={showModal} onHide={handleClose}>
-        <Modal.Header closeButton>
+      <Modal
+        className="addPurchase-modal"
+        show={showModal}
+        onHide={handleClose}
+      >
+        <Modal.Header closeButton className="close-button">
           <Modal.Title>Ajouter un achat</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="text">
+            <label htmlFor="text" className="label-add-purchase">
               Date :
               <input
                 type="text"
                 value={purchaseDate}
                 placeholder="aaaa-mm-jj"
                 onChange={(e) => setPurchaseDate(e.target.value)}
+                className="input-purchase-modal"
               />
             </label>
-            <label htmlFor="text">
+            <label htmlFor="text" className="label-add-purchase">
               Prix € :
               <input
                 type="text"
                 value={purchasePrice}
                 placeholder="1.5"
                 onChange={(e) => setPurchasePrice(e.target.value)}
+                className="input-purchase-modal"
               />
             </label>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className="ajouter-achat">
               Ajouter l'achat
             </Button>
           </form>
@@ -74,9 +80,3 @@ export default function AddPurchase({
     </div>
   );
 }
-// AddPurchase.propTypes = {
-//   showModal: PropTypes.bool.isRequired,
-//   setShow: PropTypes.func.isRequired,
-//   methodAxios: PropTypes.string.isRequired,
-//   urlAxios: PropTypes.string.isRequired,
-// };

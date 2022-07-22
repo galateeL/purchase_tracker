@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Pacifico&family=Playfair+Display&family=Roboto+Condensed&display=swap");
+
+.Homecontainer {
+  background-color: #201b72;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#enter-button button {
+  display: inline-block;
+  height: 50px;
+  width: 176px;
+  margin: 0 0px 0 0px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: #9cebd5;
+  cursor: pointer;
+  outline: none;
+  margin-top: 6em;
+}
+
+#enter-button button:hover {
+  background-color: #79b0a1;
+}
+
+.bienvenue {
+  color: white;
+  font-family: "Pacifico", cursive;
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 714px) {
+  .purchase-tracker-home {
+    width: 50%;
+  }
+
+  .bienvenue {
+    color: white;
+    font-family: "Pacifico", cursive;
+    margin-bottom: 2em;
+  }
+}

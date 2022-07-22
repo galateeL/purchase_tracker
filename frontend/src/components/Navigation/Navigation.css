@@ -2,20 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 
 .first-container-nav {
-  background-color: #eb5569;
   background-color: #201b72;
   width: 100vw;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 1em;
 }
 
 .icon-nav {
   color: white;
-  /* margin-top : 1em;
-    margin-bottom: 1em; */
   font-size: 2em;
 }
 
@@ -58,7 +54,6 @@
     display: block;
     visibility: visible;
     display: flex;
-    /* font-family: 'Playfair Display', serif; */
     font-family: "Josefin Sans", sans-serif;
     font-size: 0.6em;
     justify-content: space-evenly;
@@ -70,5 +65,9 @@
     color: white;
     text-decoration: none;
     margin: 0;
+  }
+
+  .title-nav:hover {
+    color: #eb5569;
   }
 }

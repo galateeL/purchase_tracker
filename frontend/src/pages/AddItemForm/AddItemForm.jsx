@@ -3,7 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import "./AddItemForm.css";
+import { motion } from "framer-motion";
 import Flower from "../../assets/flower.gif";
+import Navigation from "../../components/Navigation/Navigation";
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -41,6 +43,7 @@ export default function Form() {
 
   return (
     <div className="AddFormContainer">
+      <Navigation />
       <h1 className="addFormTitle">Ajouter un nouvel article</h1>
       <form
         onSubmit={handleSubmit}
@@ -76,9 +79,14 @@ export default function Form() {
             onChange={(e) => handleChange(e)}
           />
         </label>
-        <button type="submit" className="addButton">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          type="submit"
+          className="addButton"
+        >
           Ajouter l'article
-        </button>
+        </motion.button>
         <img src={Flower} alt="" width="200" className="plant1" />
       </form>
     </div>
